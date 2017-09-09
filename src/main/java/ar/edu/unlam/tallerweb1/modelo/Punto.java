@@ -3,8 +3,7 @@ package ar.edu.unlam.tallerweb1.modelo;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
-import javax.persistence.Id;
-import javax.persistence.ManyToOne;                                      
+import javax.persistence.Id;                                   
                                                                     
 @Entity                                                             
 public class Punto {                                                
@@ -14,10 +13,7 @@ public class Punto {
 	private Long id;                                                
 	                                                                
 	private String latitud;                                         
-	private String longitud;                                        
-	       
-	@ManyToOne
-	private Farmacia farmacia;
+	private String longitud;
 	
 	// EMPTY CONSTRUCT                                              
 	public Punto(){}

@@ -1,14 +1,11 @@
 package ar.edu.unlam.tallerweb1.modelo;
 
-import java.util.ArrayList;
-import java.util.List;
-
 import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.OneToMany;
+import javax.persistence.OneToOne;
 
 
 @Entity
@@ -22,11 +19,11 @@ public class Farmacia {
 	private String telefono;
 	private String diaDeTurno;
 	
-	@OneToMany(mappedBy="farmacia", cascade=CascadeType.ALL)
-	private List <Punto> colPuntos = new ArrayList<Punto>();
+	@OneToOne(mappedBy="farmacia", cascade=CascadeType.ALL)
+	private Punto punto;
 	
-	@OneToMany(mappedBy="farmacia", cascade=CascadeType.ALL)
-	private List <Direccion> colDirecciones = new ArrayList<Direccion>();
+	@OneToOne(mappedBy="farmacia", cascade=CascadeType.ALL)
+	private Direccion direccion;
 	
 	// EMPTY CONSTRUCT
 	public Farmacia(){}
@@ -57,32 +54,32 @@ public class Farmacia {
 		this.telefono = telefono;
 	}
 
-	public List<Punto> getColPuntos() {
-		return colPuntos;
-	}
-
-
-	public void setColPuntos(List<Punto> colPuntos) {
-		this.colPuntos = colPuntos;
-	}
-
-
-	public List<Direccion> getColDirecciones() {
-		return colDirecciones;
-	}
-
-
-	public void setColDirecciones(List<Direccion> colDirecciones) {
-		this.colDirecciones = colDirecciones;
-	}
-
-
 	public String getDiaDeTurno() {
 		return diaDeTurno;
 	}
 
 	public void setDiaDeTurno(String diaDeTurno) {
 		this.diaDeTurno = diaDeTurno;
+	}
+
+	// relacionPunto
+	public Punto getPunto() {
+		return punto;
+	}
+
+	
+	public void setPunto(Punto punto) {
+		this.punto = punto;
+	}
+
+	// relacionDireccion
+	public Direccion getDireccion() {
+		return direccion;
+	}
+
+
+	public void setDireccion(Direccion direccion) {
+		this.direccion = direccion;
 	}
 	
 	

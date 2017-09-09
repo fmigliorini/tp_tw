@@ -13,10 +13,7 @@ public class Direccion {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
-	
-	@ManyToOne
-	private Farmacia farmacia;
-	
+		
 	@ManyToOne
 	private Barrio barrio;
 	
@@ -59,10 +56,6 @@ public class Direccion {
 	public void setBarrio(Barrio barrio) {
 		this.barrio = barrio;
 	}
-	
-		
-	
-	
 	
 	
 }
