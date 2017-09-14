@@ -19,10 +19,10 @@ public class Farmacia {
 	private String telefono;
 	private String diaDeTurno;
 	
-	@OneToOne
+	@OneToOne(cascade=CascadeType.ALL)
 	private Punto punto;
 	
-	@OneToOne
+	@OneToOne(cascade=CascadeType.ALL)
 	private Direccion direccion;
 	
 	// EMPTY CONSTRUCT
