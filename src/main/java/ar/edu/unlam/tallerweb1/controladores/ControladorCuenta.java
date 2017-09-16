@@ -10,7 +10,6 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
 
 import ar.edu.unlam.tallerweb1.modelo.Calculadora;
-import ar.edu.unlam.tallerweb1.modelo.Usuario;
 
 @Controller
 public class ControladorCuenta {
@@ -29,7 +28,7 @@ public class ControladorCuenta {
 		try{
 			ModelMap modelo = new ModelMap();
 			
-			int suma = calculadora.sum();
+			Integer suma = calculadora.sum();
 			
 			modelo.put("num1", calculadora.getNum1());
 			modelo.put("num2", calculadora.getNum2());
