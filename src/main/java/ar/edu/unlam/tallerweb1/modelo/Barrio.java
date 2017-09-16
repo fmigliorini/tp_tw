@@ -1,6 +1,7 @@
 package ar.edu.unlam.tallerweb1.modelo;
 
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
@@ -15,13 +16,13 @@ public class Barrio {
 	
 	private String nombre;
 	
-	@ManyToOne
+	@ManyToOne(fetch = FetchType.LAZY)
 	private Comuna comuna;
 	
 	// CONSTRUCT EMPTY
 	public Barrio(){}
 	
-	// GETTERS AND SETTERS
+	// GETTERS AND SE	TTERS
 	public Long getId() {
 		return id;
 	}
@@ -45,10 +46,44 @@ public class Barrio {
 	public void setComuna(Comuna comuna) {
 		this.comuna = comuna;
 	}
-	
-	/** HASH CODE?? **/
-	
+
+	/** HASH CODE **/
+	@Override
+	public int hashCode() {
+		final int prime = 31;
+		int result = 1;
+		result = prime * result + ((comuna == null) ? 0 : comuna.hashCode());
+		result = prime * result + ((id == null) ? 0 : id.hashCode());
+		result = prime * result + ((nombre == null) ? 0 : nombre.hashCode());
+		return result;
+	}
+
 	/** EQUALS **/
-	
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj)
+			return true;
+		if (obj == null)
+			return false;
+		if (getClass() != obj.getClass())
+			return false;
+		Barrio other = (Barrio) obj;
+		if (comuna == null) {
+			if (other.comuna != null)
+				return false;
+		} else if (!comuna.equals(other.comuna))
+			return false;
+		if (id == null) {
+			if (other.id != null)
+				return false;
+		} else if (!id.equals(other.id))
+			return false;
+		if (nombre == null) {
+			if (other.nombre != null)
+				return false;
+		} else if (!nombre.equals(other.nombre))
+			return false;
+		return true;
+	}
 	
 }
